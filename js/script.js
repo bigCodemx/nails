@@ -1,7 +1,7 @@
 // script.js - Interacciones y validaciones para la web de uñas acrílicas
 
 // Scroll to Top
-const scrollBtn = document.createElement('button');
+const scrollBtn = document.createElement('a');
 scrollBtn.innerHTML = '↑';
 scrollBtn.className = 'scroll-top-btn btn btn-light';
 scrollBtn.style.position = 'fixed';
@@ -13,6 +13,9 @@ scrollBtn.style.borderRadius = '50%';
 scrollBtn.style.width = '48px';
 scrollBtn.style.height = '48px';
 scrollBtn.style.fontSize = '1.5rem';
+scrollBtn.style.backgroundColor = '#a678b4';
+scrollBtn.style.color = 'white';
+scrollBtn.style.border = 'none';
 document.body.appendChild(scrollBtn);
 
 window.addEventListener('scroll', () => {
@@ -79,6 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (flechaIzq && flechaDer) {
         flechaIzq.addEventListener('click', mostrarAnterior);
         flechaDer.addEventListener('click', mostrarSiguiente);
+    }
+
+    // Efecto hover en imágenes del portafolio
+    const portfolioImages = document.querySelectorAll('.portafolio-img');
+    if (portfolioImages.length > 0) {
+        portfolioImages.forEach(img => {
+            const parentCol = img.parentElement;
+            parentCol.style.overflow = 'hidden';
+            parentCol.style.borderRadius = '0.25rem';
+        });
     }
 });
 
